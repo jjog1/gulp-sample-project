@@ -1,0 +1,6 @@
+{
+	"name": "Yay Sample Application",
+	"dependencies": {
+		"knockout": "~3.2.0"
+	}
+}
