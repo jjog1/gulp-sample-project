@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var coffee = require('gulp-coffee');
 var jade = require('gulp-jade');
+var mainbowerfiles = require('gulp-main-bower-files');
 
 gulp.task('default', ['styles', 'scripts', 'templates']);
 
@@ -17,6 +18,13 @@ gulp.task('scripts', function(){
 	gulp.src('script.coffee')
 	.pipe(coffee())
 	.pipe(gulp.dest('dist/scripts'))
+
+
+	console.log('main bower files');
+	gulp.src('./bower.json')
+        .pipe(mainbowerfiles())
+        .pipe(gulp.dest('dist/libs'));
+
 });
 
 gulp.task('templates', function(){
@@ -25,4 +33,4 @@ gulp.task('templates', function(){
 	gulp.src('index.jade')
 	.pipe(jade())
 	.pipe(gulp.dest('dist'))
-})
+});
